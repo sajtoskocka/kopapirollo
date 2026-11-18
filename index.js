@@ -39,7 +39,7 @@ function megjelenit(){
 
 function kivalaszt(event){
   const kep=document.querySelector("#jatekos img")
-  console.log(kep)
+  console.log(event.target)
   console.log(event.target.id)
   kep.src=`kepek/${event.target.id}.PNG`
   gepValasztasa(event.target.id)
