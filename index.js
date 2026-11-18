@@ -37,9 +37,70 @@ function megjelenit(){
     
 }
 
-function kivalaszt(){
+function kivalaszt(event){
   const kep=document.querySelector("#jatekos img")
   console.log(kep)
   console.log(event.target.id)
-  kep.src="kepek/ko.png"
+  kep.src=`kepek/${event.target.id}.PNG`
+  gepValasztasa(event.target.id)
+}
+
+function gepValasztasa(jvalasztasa){
+  const kep = document.querySelector("#gep img")
+  console.log(kep)
+  let veletlen = Math.floor(Math.random()*3)
+  console.log(veletlen)
+  if (veletlen == 0){
+    kep.src=`kepek/ko.PNG`
+  }
+  else if(veletlen == 1){
+    kep.src=`kepek/papir.PNG`
+  }
+  else{
+    kep.src=`kepek/ollo.PNG`
+  }
+  ellenorzes(veletlen, jvalasztasa)
+}
+
+function ellenorzes(veletlen, jvalasztasa){
+  const kiiras = document.getElementById("gyoztes")
+
+  let felt1 = (jvalasztasa == "ko" && veletlen == 2)
+  let felt2 = (jvalasztasa == "papir" && veletlen == 0)
+  let felt3 = (jvalasztasa == "ollo" && veletlen == 1)
+  let felt4 = (jvalasztasa == "ko" && veletlen == 0)
+  let felt5 = (jvalasztasa == "papir" && veletlen == 1)
+  let felt6 = (jvalasztasa == "ollo" && veletlen == 0)
+  let felt7 = (jvalasztasa == "ko" && veletlen == 1)
+  let felt8 = (jvalasztasa == "papir" && veletlen == 2)
+  let felt9 = (jvalasztasa == "ollo" && veletlen == 2)
+
+  if (felt1){
+    kiiras.textContent = "Te nyertél"
+  }
+  else if (felt2){
+    kiiras.textContent ="Te nyertél"
+  }
+  else if (felt3){
+    kiiras.textContent = "Te nyertél"
+  }
+  else if (felt4){
+    kiiras.textContent = "Döntetlen"
+  }
+  else if (felt5){
+    kiiras.textContent = "Döntetlen"
+  }
+  else if (felt6){
+    kiiras.textContent = "A gép nyert"
+  }
+  else if (felt7){
+    kiiras.textContent = "A gép nyert"
+  }
+  else if (felt8){
+    kiiras.textContent = "A gép nyert"
+  }
+  else if (felt9){
+    kiiras.textContent = "Döntetlen"
+  }
+
 }
